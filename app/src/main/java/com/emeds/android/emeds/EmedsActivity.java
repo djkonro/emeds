@@ -1,4 +1,4 @@
-package com.emeds.android;
+package com.emeds.android.emeds;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

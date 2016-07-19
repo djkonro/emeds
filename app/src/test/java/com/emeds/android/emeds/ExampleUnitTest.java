@@ -1,4 +1,4 @@
-package com.emeds.android;
+package com.emeds.android.emeds;
 
 import org.junit.Test;
 
