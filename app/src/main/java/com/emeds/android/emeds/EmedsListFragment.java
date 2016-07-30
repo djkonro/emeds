@@ -53,7 +53,7 @@ public class EmedsListFragment extends Fragment{
             super(itemView);
             itemView.setOnClickListener(this);
 
-            mTitleTextView = (TextView) itemView;//.findViewById(R.id.list_item_service_text_view);
+            mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_service_text_view);
         }
 
         public void bindCrime(String str) {
@@ -80,8 +80,7 @@ public class EmedsListFragment extends Fragment{
         @Override
         public RvHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            View view = layoutInflater
-                    .inflate(android.R.layout.simple_list_item_1, parent, false);
+            View view = layoutInflater.inflate(R.layout.list_item_emeds, parent, false);
             return new RvHolder(view);
         }
 
