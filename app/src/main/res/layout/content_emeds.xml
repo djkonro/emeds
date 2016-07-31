@@ -8,13 +8,9 @@
     tools:context="com.emeds.android.emeds.EmedsListActivity"
     tools:showIn="@layout/app_bar_emeds">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="@+id/content_emeds"
-        app:layout_constraintLeft_toLeftOf="@+id/content_emeds"
-        app:layout_constraintRight_toRightOf="@+id/content_emeds"
-        app:layout_constraintTop_toTopOf="@+id/content_emeds" />
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </android.support.constraint.ConstraintLayout>
