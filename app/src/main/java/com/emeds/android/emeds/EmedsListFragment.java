@@ -1,5 +1,6 @@
 package com.emeds.android.emeds;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,9 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,9 +62,8 @@ public class EmedsListFragment extends Fragment{
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(getActivity(),
-                    str + " clicked!", Toast.LENGTH_SHORT)
-                    .show();
+            Intent intent = new Intent(getActivity(), EmedsItemListActivity.class);
+            startActivity(intent);
         }
     }
 
