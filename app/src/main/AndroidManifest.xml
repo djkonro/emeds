@@ -21,6 +21,10 @@
         <activity
             android:name=".EmedsItemListActivity"
             android:label="@string/title_activity_emeds_item_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EmedsItemDetailActivity"
+            android:label="@string/title_activity_emeds_item_detail"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
