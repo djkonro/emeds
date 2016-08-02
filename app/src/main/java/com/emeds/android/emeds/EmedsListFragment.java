@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,10 +32,10 @@ public class EmedsListFragment extends Fragment{
 
         List<String> strs = new ArrayList<String>();
 
-        strs.add(String.valueOf(R.string.hospitals));
-        strs.add(String.valueOf(R.string.pharmacies));
-        strs.add(String.valueOf(R.string.clinics));
-        strs.add(String.valueOf(R.string.others));
+        strs.add(getString(R.string.hospitals));
+        strs.add(getString(R.string.pharmacies));
+        strs.add(getString(R.string.clinics));
+        strs.add(getString(R.string.others));
 
         mAdapter = new RvAdapter(strs);
         mEmedsRecyclerView.setAdapter(mAdapter);
@@ -46,6 +47,7 @@ public class EmedsListFragment extends Fragment{
             implements View.OnClickListener {
 
         private TextView mTitleTextView;
+        private ImageView mTitleImageView;
         private String str;
 
         public RvHolder(View itemView) {
@@ -53,11 +55,21 @@ public class EmedsListFragment extends Fragment{
             itemView.setOnClickListener(this);
 
             mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_service_text_view);
+            mTitleImageView = (ImageView) itemView.findViewById(R.id.list_item_service_image_view);
         }
 
         public void bindCrime(String str) {
             this.str = str;
             mTitleTextView.setText(str);
+            if(str == getString(R.string.hospitals)){
+                mTitleImageView.setImageResource(R.mipmap.hospitals);
+            }else if (str == getString(R.string.pharmacies)){
+                mTitleImageView.setImageResource(R.mipmap.pharmacy);
+            }else if (str == getString(R.string.clinics)){
+                mTitleImageView.setImageResource(R.mipmap.clinics);
+            }else if (str == getString(R.string.others)){
+                mTitleImageView.setImageResource(R.mipmap.others);
+            }
         }
 
         @Override
