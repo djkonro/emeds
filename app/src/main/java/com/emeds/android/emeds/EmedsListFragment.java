@@ -31,10 +31,10 @@ public class EmedsListFragment extends Fragment{
 
         List<String> strs = new ArrayList<String>();
 
-        strs.add("HOSPITALS");
-        strs.add("PHARMACIES");
-        strs.add("CLINICS");
-        strs.add("OTHERS");
+        strs.add(String.valueOf(R.string.hospitals));
+        strs.add(String.valueOf(R.string.pharmacies));
+        strs.add(String.valueOf(R.string.clinics));
+        strs.add(String.valueOf(R.string.others));
 
         mAdapter = new RvAdapter(strs);
         mEmedsRecyclerView.setAdapter(mAdapter);

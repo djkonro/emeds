@@ -7,4 +7,8 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_emeds_item_list">EmedsItem</string>
     <string name="title_activity_emeds_item_detail">EmedsItemDetail</string>
+    <string name="hospitals">HOSPITALS</string>
+    <string name="pharmacies">PHARMACIES</string>
+    <string name="clinics">CLINICS</string>
+    <string name="others">OTHERS</string>
 </resources>
