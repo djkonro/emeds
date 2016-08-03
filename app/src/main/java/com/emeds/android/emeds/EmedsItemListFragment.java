@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +55,7 @@ public class EmedsItemListFragment extends Fragment {
             mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_service_text_view);
         }
 
-        public void bindCrime(String str) {
+        public void bindItem(String str) {
             this.str = str;
             mTitleTextView.setText(str);
         }
@@ -86,7 +85,7 @@ public class EmedsItemListFragment extends Fragment {
         @Override
         public void onBindViewHolder(RvHolder holder, int position) {
             String str = mstrs.get(position);
-            holder.bindCrime(str);
+            holder.bindItem(str);
         }
 
         @Override
