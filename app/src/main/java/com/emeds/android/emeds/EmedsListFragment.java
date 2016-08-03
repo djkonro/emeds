@@ -26,7 +26,7 @@ public class EmedsListFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_emeds_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_emeds_list1, container, false);
         mEmedsRecyclerView = (RecyclerView) view.findViewById(R.id.emeds_recycler_view);
         mEmedsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -90,7 +90,7 @@ public class EmedsListFragment extends Fragment{
         @Override
         public RvHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-            View view = layoutInflater.inflate(R.layout.list_item_emeds, parent, false);
+            View view = layoutInflater.inflate(R.layout.list1_item_emeds, parent, false);
             return new RvHolder(view);
         }
 
