@@ -12,4 +12,5 @@
     <string name="clinics">CLINICS</string>
     <string name="others">OTHERS</string>
     <string name="search_title">Search</string>
+    <string name="search_hint">Enter name, location or any other </string>
 </resources>
