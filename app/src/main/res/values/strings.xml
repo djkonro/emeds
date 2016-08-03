@@ -11,4 +11,5 @@
     <string name="pharmacies">PHARMACIES</string>
     <string name="clinics">CLINICS</string>
     <string name="others">OTHERS</string>
+    <string name="search_title">Search</string>
 </resources>
