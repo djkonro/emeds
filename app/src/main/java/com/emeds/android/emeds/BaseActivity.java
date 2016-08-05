@@ -85,7 +85,6 @@ public class BaseActivity extends AppCompatActivity
         SearchView searchView =
                 (SearchView) menu.findItem(R.id.search).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        //searchView.setBackgroundColor(Color.WHITE);
 
         return true;
     }

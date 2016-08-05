@@ -28,6 +28,7 @@
         <activity
             android:name=".EmedsItemDetailActivity"
             android:label="@string/title_activity_emeds_item_detail"
+            android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <meta-data android:name="android.app.searchable"
             android:resource="@xml/searchable" />
