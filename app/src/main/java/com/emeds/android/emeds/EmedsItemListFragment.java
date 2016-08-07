@@ -1,6 +1,7 @@
 package com.emeds.android.emeds;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.emeds.android.emeds.EmedsListFragment.opt;
 
 /**
  * Created by konro on 7/31/16.
@@ -30,11 +33,43 @@ public class EmedsItemListFragment extends Fragment {
         mEmedsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         List<String> strs = new ArrayList<String>();
+        String tablename = null, columntitle = null;
 
-        strs.add("TEST1");
-        strs.add("TEST2");
-        strs.add("TEST3");
-        strs.add("TEST4");
+        if(EmedsListFragment.opt == getString(R.string.hospitals)){
+            tablename = EmedsDb.HospitalEntry.TABLE_NAME;
+            columntitle = EmedsDb.HospitalEntry.COLUMN_NAME_TITLE;
+        }else if (EmedsListFragment.opt == getString(R.string.pharmacies)){
+            tablename = EmedsDb.PharmacyEntry.TABLE_NAME;
+            columntitle = EmedsDb.PharmacyEntry.COLUMN_NAME_TITLE;
+        }else if (EmedsListFragment.opt == getString(R.string.clinics)){
+            tablename = EmedsDb.ClinicEntry.TABLE_NAME;
+            columntitle = EmedsDb.ClinicEntry.COLUMN_NAME_TITLE;
+        }else if (EmedsListFragment.opt == getString(R.string.others)){
+            tablename = EmedsDb.OtherEntry.TABLE_NAME;
+            columntitle = EmedsDb.OtherEntry.COLUMN_NAME_TITLE;
+        }
+
+
+        //mTitleImageView.setImageResource(R.mipmap.hospitals);
+        Cursor cursor = EmedsListFragment.db.query(
+                tablename,
+                null, // Columns - null selects all columns
+                null,
+                null,
+                null, // groupBy
+                null, // having
+                null // orderBy
+        );
+        try {
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()) {
+                strs.add(cursor.getString(
+                        cursor.getColumnIndex(columntitle)));
+                cursor.moveToNext();
+            }
+        } finally {
+            cursor.close();
+        }
 
         mAdapter = new RvAdapter(strs);
         mEmedsRecyclerView.setAdapter(mAdapter);

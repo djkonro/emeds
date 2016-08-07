@@ -1,6 +1,9 @@
 package com.emeds.android.emeds;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,6 +25,10 @@ public class EmedsListFragment extends Fragment{
 
     private RecyclerView mEmedsRecyclerView;
     private RvAdapter mAdapter;
+    private long newRowId;
+    private List<String> strs;
+    public static SQLiteDatabase db;
+    public static String opt;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,12 +37,24 @@ public class EmedsListFragment extends Fragment{
         mEmedsRecyclerView = (RecyclerView) view.findViewById(R.id.emeds_recycler_view);
         mEmedsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        List<String> strs = new ArrayList<String>();
+        strs = new ArrayList<String>();
 
         strs.add(getString(R.string.hospitals));
         strs.add(getString(R.string.pharmacies));
         strs.add(getString(R.string.clinics));
         strs.add(getString(R.string.others));
+
+        EmedsDbHelper mDbHelper = new EmedsDbHelper(getContext());
+
+        // Gets the data repository in write mode
+        db = mDbHelper.getWritableDatabase();
+
+        if (mDbHelper.dbExist == false) {
+            //PopulateDb.populate();
+
+            mDbHelper.dbExist = true;
+        }
+
 
         mAdapter = new RvAdapter(strs);
         mEmedsRecyclerView.setAdapter(mAdapter);
@@ -74,6 +93,7 @@ public class EmedsListFragment extends Fragment{
 
         @Override
         public void onClick(View v) {
+            opt = str;
             Intent intent = new Intent(getActivity(), EmedsItemListActivity.class);
             startActivity(intent);
         }
