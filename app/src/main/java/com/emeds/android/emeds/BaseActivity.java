@@ -1,5 +1,6 @@
 package com.emeds.android.emeds;
 
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -7,16 +8,32 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    // action bar
+    private ActionBar actionBar;
 
+    // Title navigation Spinner data
+    private ArrayList<SpinnerNavItem> navSpinner;
+
+    // Navigation adapter
+    private TitleNavigationAdapter adapter;
     int Rlayoutid = -1;
 
     @Override
@@ -45,6 +62,63 @@ public class BaseActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //initialising the actionbar variable
+        actionBar = getSupportActionBar();
+
+        // Hide the action bar title
+        actionBar.setDisplayShowTitleEnabled(false);
+
+        // Enabling Spinner dropdown navigation
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+
+        // Spinner title navigation data
+        navSpinner = new ArrayList<SpinnerNavItem>();
+        navSpinner.add(new SpinnerNavItem("All Locations"));
+        navSpinner.add(new SpinnerNavItem("Buea"));
+        navSpinner.add(new SpinnerNavItem("Douala"));
+        navSpinner.add(new SpinnerNavItem("Yaounde"));
+        navSpinner.add(new SpinnerNavItem("Bafoussam"));
+        navSpinner.add(new SpinnerNavItem("Bamenda"));
+        navSpinner.add(new SpinnerNavItem("Ngaoundere"));
+        navSpinner.add(new SpinnerNavItem("Bertoua"));
+        navSpinner.add(new SpinnerNavItem("Maroua"));
+        navSpinner.add(new SpinnerNavItem("Garoua"));
+        navSpinner.add(new SpinnerNavItem("Ebolowa"));
+
+        // title drop down adapter
+        adapter = new TitleNavigationAdapter(getApplicationContext(), navSpinner);
+
+        // assigning the spinner navigation and setting its onclick listener
+        actionBar.setListNavigationCallbacks(adapter, new ActionBar.OnNavigationListener() {
+            @Override
+            public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+                if (itemPosition == 0){
+                    Toast.makeText(getApplicationContext(), "All Locations Selected", Toast.LENGTH_SHORT).show();
+                }else if (itemPosition == 1){
+                    Toast.makeText(getApplicationContext(), "Buea Selected", Toast.LENGTH_SHORT).show();
+                }else if (itemPosition == 2){
+                    Toast.makeText(getApplicationContext(), "Douala Selected", Toast.LENGTH_SHORT).show();
+                }else if (itemPosition == 3){
+                    Toast.makeText(getApplicationContext(), "Yaounde Selected", Toast.LENGTH_SHORT).show();
+                }else if (itemPosition == 4){
+                    Toast.makeText(getApplicationContext(), "Bafoussam Selected", Toast.LENGTH_SHORT).show();
+                }else if (itemPosition == 5){
+                    Toast.makeText(getApplicationContext(), "Bamenda Selected", Toast.LENGTH_SHORT).show();
+                }else if (itemPosition == 6){
+                    Toast.makeText(getApplicationContext(), "Ngaoundere Selected", Toast.LENGTH_SHORT).show();
+                }else if (itemPosition == 7){
+                    Toast.makeText(getApplicationContext(), "Bertoua Selected", Toast.LENGTH_SHORT).show();
+                }else if (itemPosition == 8){
+                    Toast.makeText(getApplicationContext(), "Maroua Selected", Toast.LENGTH_SHORT).show();
+                }else if (itemPosition == 8){
+                    Toast.makeText(getApplicationContext(), "Garoua Selected", Toast.LENGTH_SHORT).show();
+                }else if (itemPosition == 10){
+                    Toast.makeText(getApplicationContext(), "Ebolowa Selected", Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            }
+        });
 
         //handling the search
         handleIntent(getIntent());
@@ -127,5 +201,77 @@ public class BaseActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    class TitleNavigationAdapter extends BaseAdapter {
+
+        private TextView txtTitle;
+        private ArrayList<SpinnerNavItem> spinnerNavItem;
+        private Context context;
+
+        public TitleNavigationAdapter(Context context,
+                                      ArrayList<SpinnerNavItem> spinnerNavItem) {
+            this.spinnerNavItem = spinnerNavItem;
+            this.context = context;
+        }
+
+        @Override
+        public int getCount() {
+            return spinnerNavItem.size();
+        }
+
+        @Override
+        public Object getItem(int index) {
+            return spinnerNavItem.get(index);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                LayoutInflater mInflater = (LayoutInflater)
+                        context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+                convertView = mInflater.inflate(R.layout.list_item_title_navigation, null);
+            }
+
+            txtTitle = (TextView) convertView.findViewById(R.id.txtTitle);
+
+            txtTitle.setText(spinnerNavItem.get(position).getTitle());
+            return convertView;
+        }
+
+
+        @Override
+        public View getDropDownView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                LayoutInflater mInflater = (LayoutInflater)
+                        context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+                convertView = mInflater.inflate(R.layout.list_item_title_navigation, null);
+            }
+
+            txtTitle = (TextView) convertView.findViewById(R.id.txtTitle);
+
+            txtTitle.setText(spinnerNavItem.get(position).getTitle());
+            return convertView;
+        }
+
+    }
+
+    class SpinnerNavItem {
+
+        private String title;
+
+        public SpinnerNavItem(String title){
+            this.title = title;
+        }
+
+        public String getTitle(){
+            return this.title;
+        }
+
     }
 }
