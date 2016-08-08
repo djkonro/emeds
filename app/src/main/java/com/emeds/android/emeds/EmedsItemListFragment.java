@@ -24,6 +24,7 @@ public class EmedsItemListFragment extends Fragment {
 
     private RecyclerView mEmedsRecyclerView;
     private RvAdapter mAdapter;
+    private String tablename = null, columntitle = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,8 +33,7 @@ public class EmedsItemListFragment extends Fragment {
         mEmedsRecyclerView = (RecyclerView) view.findViewById(R.id.emeds_recycler_view);
         mEmedsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        List<String> strs = new ArrayList<String>();
-        String tablename = null, columntitle = null;
+        List<Integer> curs = new ArrayList<Integer>();
 
         if(EmedsListFragment.opt == getString(R.string.hospitals)){
             tablename = EmedsDb.HospitalEntry.TABLE_NAME;
@@ -51,27 +51,18 @@ public class EmedsItemListFragment extends Fragment {
 
 
         //mTitleImageView.setImageResource(R.mipmap.hospitals);
-        Cursor cursor = EmedsListFragment.db.query(
-                tablename,
-                null, // Columns - null selects all columns
-                null,
-                null,
-                null, // groupBy
-                null, // having
-                null // orderBy
-        );
+        Cursor cursor = EmedsDb.getCursor(tablename);
         try {
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
-                strs.add(cursor.getString(
-                        cursor.getColumnIndex(columntitle)));
+                curs.add(cursor.getPosition());
                 cursor.moveToNext();
             }
         } finally {
             cursor.close();
         }
 
-        mAdapter = new RvAdapter(strs);
+        mAdapter = new RvAdapter(curs);
         mEmedsRecyclerView.setAdapter(mAdapter);
 
         return view;
@@ -90,8 +81,12 @@ public class EmedsItemListFragment extends Fragment {
             mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_service_text_view);
         }
 
-        public void bindItem(String str) {
-            this.str = str;
+        public void bindItem(Integer cur) {
+            Cursor cursor = EmedsDb.getCursor(tablename);
+            cursor.moveToPosition(cur);
+            str = cursor.getString(
+                    cursor.getColumnIndex(columntitle));
+            //cursor.close();
             mTitleTextView.setText(str);
         }
 
@@ -104,10 +99,10 @@ public class EmedsItemListFragment extends Fragment {
 
     private class RvAdapter extends RecyclerView.Adapter<RvHolder> {
 
-        private List<String> mstrs;
+        private List<Integer> mcurs;
 
-        public RvAdapter(List<String> strs) {
-            mstrs = strs;
+        public RvAdapter(List<Integer> curs) {
+            mcurs = curs;
         }
 
         @Override
@@ -119,13 +114,13 @@ public class EmedsItemListFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(RvHolder holder, int position) {
-            String str = mstrs.get(position);
-            holder.bindItem(str);
+            Integer cur = mcurs.get(position);
+            holder.bindItem(cur);
         }
 
         @Override
         public int getItemCount() {
-            return mstrs.size();
+            return mcurs.size();
         }
     }
 }

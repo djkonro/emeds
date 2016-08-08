@@ -1,5 +1,6 @@
 package com.emeds.android.emeds;
 
+import android.database.Cursor;
 import android.provider.BaseColumns;
 
 /**
@@ -34,5 +35,18 @@ public class EmedsDb {
         public static final String TABLE_NAME = "other_entry";
         public static final String COLUMN_NAME_ENTRY_ID = "entryid";
         public static final String COLUMN_NAME_TITLE = "title";
+    }
+
+    public static Cursor getCursor(String tablename){
+        //mTitleImageView.setImageResource(R.mipmap.hospitals);
+        return EmedsListFragment.db.query(
+                tablename,
+                null, // Columns - null selects all columns
+                null,
+                null,
+                null, // groupBy
+                null, // having
+                null // orderBy
+        );
     }
 }

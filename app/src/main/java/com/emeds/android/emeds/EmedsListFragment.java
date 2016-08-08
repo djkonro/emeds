@@ -49,12 +49,6 @@ public class EmedsListFragment extends Fragment{
         // Gets the data repository in write mode
         db = mDbHelper.getWritableDatabase();
 
-        if (mDbHelper.dbExist == false) {
-            //PopulateDb.populate();
-
-            mDbHelper.dbExist = true;
-        }
-
 
         mAdapter = new RvAdapter(strs);
         mEmedsRecyclerView.setAdapter(mAdapter);
