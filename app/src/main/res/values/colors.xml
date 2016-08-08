@@ -3,4 +3,8 @@
     <color name="colorPrimary">#FF0000</color>
     <color name="colorPrimaryDark">#F2000D</color>
     <color name="colorAccent">#CC0033</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorAsh">#cdcdcd</color>
+    <color name="colorDarkAsh">#919191</color>
 </resources>
