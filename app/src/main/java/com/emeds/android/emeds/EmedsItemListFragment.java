@@ -24,7 +24,9 @@ public class EmedsItemListFragment extends Fragment {
 
     private RecyclerView mEmedsRecyclerView;
     private RvAdapter mAdapter;
-    private String tablename = null, columntitle = null;
+    public static String tablename = null, columntitle = null;
+    public static int spos;
+    public static Cursor scur;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -73,6 +75,8 @@ public class EmedsItemListFragment extends Fragment {
 
         private TextView mTitleTextView;
         private String str;
+        private int cur;
+        private Cursor cursor = EmedsDb.getCursor(tablename);
 
         public RvHolder(View itemView) {
             super(itemView);
@@ -82,7 +86,7 @@ public class EmedsItemListFragment extends Fragment {
         }
 
         public void bindItem(Integer cur) {
-            Cursor cursor = EmedsDb.getCursor(tablename);
+            this.cur = cur;
             cursor.moveToPosition(cur);
             str = cursor.getString(
                     cursor.getColumnIndex(columntitle));
@@ -92,6 +96,8 @@ public class EmedsItemListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
+            spos = cur;
+            scur = cursor;
             Intent intent = new Intent(getActivity(), EmedsItemDetailActivity.class);
             startActivity(intent);
         }

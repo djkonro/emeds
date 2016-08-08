@@ -21,5 +21,15 @@ public class EmedsItemDetailActivity extends BaseActivity {
         Rlayoutid = R.layout.activity_emeds;
         super.onCreate(savedInstanceState);
 
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.fragment_container);
+
+        if (fragment == null) {
+            fragment = new EmedsItemDetailFragment();
+            fm.beginTransaction()
+                    .add(R.id.fragment_container, fragment)
+                    .commit();
+        }
+
     }
 }
