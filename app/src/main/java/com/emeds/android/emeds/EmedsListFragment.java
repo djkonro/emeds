@@ -44,7 +44,7 @@ public class EmedsListFragment extends Fragment{
         strs.add(getString(R.string.clinics));
         strs.add(getString(R.string.others));
 
-        EmedsDbHelper mDbHelper = new EmedsDbHelper(getContext());
+        EmedsDbHelper mDbHelper = new EmedsDbHelper(getActivity().getApplicationContext());
 
         // Gets the data repository in write mode
         db = mDbHelper.getWritableDatabase();
