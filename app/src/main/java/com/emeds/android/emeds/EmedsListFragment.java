@@ -25,7 +25,6 @@ public class EmedsListFragment extends Fragment{
 
     private RecyclerView mEmedsRecyclerView;
     private RvAdapter mAdapter;
-    private long newRowId;
     private List<String> strs;
     public static SQLiteDatabase db;
     public static String opt;
