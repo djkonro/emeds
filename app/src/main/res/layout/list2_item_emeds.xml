@@ -17,8 +17,8 @@
         android:layout_marginBottom="6dp">
 
         <ImageView
-            android:layout_width="50px"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="70dp"
             android:id="@+id/list2_item_service_image_view" />
 
         <LinearLayout
@@ -39,6 +39,8 @@
                 android:layout_width="match_parent"
                 android:layout_height=".1dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
                 android:background="#ffb3b3"/>
 
         </LinearLayout>
