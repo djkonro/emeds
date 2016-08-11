@@ -66,8 +66,8 @@ public class EmedsListFragment extends Fragment{
             super(itemView);
             itemView.setOnClickListener(this);
 
-            mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_service_text_view);
-            mTitleImageView = (ImageView) itemView.findViewById(R.id.list_item_service_image_view);
+            mTitleTextView = (TextView) itemView.findViewById(R.id.list1_item_service_text_view);
+            mTitleImageView = (ImageView) itemView.findViewById(R.id.list1_item_service_image_view);
         }
 
         public void bindItem(String str) {

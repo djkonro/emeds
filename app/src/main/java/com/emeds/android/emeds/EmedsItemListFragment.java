@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -74,6 +75,7 @@ public class EmedsItemListFragment extends Fragment {
             implements View.OnClickListener {
 
         private TextView mTitleTextView;
+        private ImageView mTitleImageView;
         private String str;
         private int cur;
         private Cursor cursor = EmedsDb.getCursor(tablename);
@@ -82,7 +84,8 @@ public class EmedsItemListFragment extends Fragment {
             super(itemView);
             itemView.setOnClickListener(this);
 
-            mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_service_text_view);
+            mTitleTextView = (TextView) itemView.findViewById(R.id.list2_item_service_text_view);
+            mTitleImageView = (ImageView) itemView.findViewById(R.id.list2_item_service_image_view);
         }
 
         public void bindItem(Integer cur) {
@@ -91,6 +94,7 @@ public class EmedsItemListFragment extends Fragment {
             str = cursor.getString(
                     cursor.getColumnIndex(columntitle));
             //cursor.close();
+            mTitleImageView.setImageResource(R.mipmap.hospitals);
             mTitleTextView.setText(str);
         }
 
