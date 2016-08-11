@@ -18,7 +18,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +36,8 @@ public class BaseActivity extends AppCompatActivity
 
     // Navigation adapter
     private TitleNavigationAdapter adapter;
+    private Spinner spinner;
+    private static int mpos = 0;
     int Rlayoutid = -1;
 
     @Override
@@ -69,9 +73,6 @@ public class BaseActivity extends AppCompatActivity
         // Hide the action bar title
         actionBar.setDisplayShowTitleEnabled(false);
 
-        // Enabling Spinner dropdown navigation
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-
         // Spinner title navigation data
         navSpinner = new ArrayList<SpinnerNavItem>();
         navSpinner.add(new SpinnerNavItem("All Locations"));
@@ -89,34 +90,27 @@ public class BaseActivity extends AppCompatActivity
         // title drop down adapter
         adapter = new TitleNavigationAdapter(getApplicationContext(), navSpinner);
 
-        // assigning the spinner navigation and setting its onclick listener
-        actionBar.setListNavigationCallbacks(adapter, new ActionBar.OnNavigationListener() {
+        spinner = (Spinner) findViewById(R.id.spinner_view);;
+        spinner.setAdapter(adapter);
+        spinner.setSelection(mpos);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
             @Override
-            public boolean onNavigationItemSelected(int itemPosition, long itemId) {
-                if (itemPosition == 0){
-                    Toast.makeText(getApplicationContext(), "All Locations Selected", Toast.LENGTH_SHORT).show();
-                }else if (itemPosition == 1){
-                    Toast.makeText(getApplicationContext(), "Buea Selected", Toast.LENGTH_SHORT).show();
-                }else if (itemPosition == 2){
-                    Toast.makeText(getApplicationContext(), "Douala Selected", Toast.LENGTH_SHORT).show();
-                }else if (itemPosition == 3){
-                    Toast.makeText(getApplicationContext(), "Yaounde Selected", Toast.LENGTH_SHORT).show();
-                }else if (itemPosition == 4){
-                    Toast.makeText(getApplicationContext(), "Bafoussam Selected", Toast.LENGTH_SHORT).show();
-                }else if (itemPosition == 5){
-                    Toast.makeText(getApplicationContext(), "Bamenda Selected", Toast.LENGTH_SHORT).show();
-                }else if (itemPosition == 6){
-                    Toast.makeText(getApplicationContext(), "Ngaoundere Selected", Toast.LENGTH_SHORT).show();
-                }else if (itemPosition == 7){
-                    Toast.makeText(getApplicationContext(), "Bertoua Selected", Toast.LENGTH_SHORT).show();
-                }else if (itemPosition == 8){
-                    Toast.makeText(getApplicationContext(), "Maroua Selected", Toast.LENGTH_SHORT).show();
-                }else if (itemPosition == 8){
-                    Toast.makeText(getApplicationContext(), "Garoua Selected", Toast.LENGTH_SHORT).show();
-                }else if (itemPosition == 10){
-                    Toast.makeText(getApplicationContext(), "Ebolowa Selected", Toast.LENGTH_SHORT).show();
-                }
-                return true;
+            public void onItemSelected(AdapterView<?> adapter, View v,
+                                       int position, long id) {
+                String item = navSpinner.get(position).getTitle();
+                mpos =  position;
+
+                spinner.setSelection(mpos);
+                Toast.makeText(getApplicationContext(), "Selected  : " + item,
+                        Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO
+
             }
         });
 
