@@ -1,16 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="50dp">
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="55dp"
+    android:foreground="?attr/selectableItemBackground">
 
-    <TextView
-        android:id="@+id/detial_text_view1"
-        android:text="TextView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:padding="20dp" />
+        android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/card_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+             />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/detial_text_view1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/card_image"
+            android:layout_marginLeft="3dp"
+            tools:text="testing"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/card_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_image"
+            tools:text="resrser"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/colorDarkAsh" />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
