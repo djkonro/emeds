@@ -19,6 +19,7 @@
         <ImageView
             android:layout_width="60dp"
             android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
             android:id="@+id/list2_item_service_image_view" />
 
         <LinearLayout

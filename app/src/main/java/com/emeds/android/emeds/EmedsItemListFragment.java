@@ -94,7 +94,7 @@ public class EmedsItemListFragment extends Fragment {
             str = cursor.getString(
                     cursor.getColumnIndex(columntitle));
             //cursor.close();
-            mTitleImageView.setImageResource(R.mipmap.hospitals);
+            mTitleImageView.setImageResource(R.drawable.test);
             mTitleTextView.setText(str);
         }
 
