@@ -23,8 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/card_image"
-            android:layout_marginLeft="3dp"
             tools:text="testing"
+            android:background="@color/cardview_shadow_start_color"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="@color/colorWhite" />
 
