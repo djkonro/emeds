@@ -1,14 +1,25 @@
-<LinearLayout android:layout_width="match_parent"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="55dp"
+    android:scrollbars="none"
+    android:id="@+id/scroll">
+
+<LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:focusableInTouchMode="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+
         android:foreground="?attr/selectableItemBackground">
 
         <RelativeLayout
@@ -31,16 +42,6 @@
                 android:background="@color/cardview_shadow_start_color"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textColor="@color/colorWhite" />
-
-            <TextView
-                android:id="@+id/card_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/card_image"
-                tools:text="resrser"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:textColor="@color/colorDarkAsh" />
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>
@@ -73,7 +74,8 @@
                 android:layout_height="wrap_content"
                 android:text="00237670365757"
                 android:layout_marginTop="35dp"
-                android:textColor="@color/colorBlack"/>
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp"/>
 
             <ImageButton
                 android:id="@+id/phone_button"
@@ -117,7 +119,8 @@
                 android:layout_height="wrap_content"
                 android:text="Molyko Buea"
                 android:layout_marginTop="35dp"
-                android:textColor="@color/colorBlack"/>
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp"/>
 
             <ImageButton
                 android:id="@+id/location_button"
@@ -133,4 +136,37 @@
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/services_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:foreground="?attr/selectableItemBackground">
+
+        <RelativeLayout
+            android:id="@+id/phone_info1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/phone1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Service"
+                android:textSize="18dp"
+                android:textColor="@color/colorAccent"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/service_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="25dp" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </LinearLayout>
+</ScrollView>
