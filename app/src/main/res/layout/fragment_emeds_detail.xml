@@ -73,22 +73,20 @@
                 android:layout_height="wrap_content"
                 android:text="00237670365757"
                 android:layout_marginTop="35dp"
-                android:textColor="@color/colorBlack"
                 android:textSize="18dp"/>
 
-            <ImageButton
-                android:id="@+id/phone_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="104dp"
-                app:srcCompat="@drawable/ic_local_phone_black_24dp"
-                android:layout_below="@+id/phone"
-                android:layout_toRightOf="@id/number"
-                style="?android:attr/borderlessButtonStyle"
-                android:tint="@color/colorAccent" />
-
         </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/phone_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/ic_local_phone_black_24dp"
+            android:layout_marginTop="30dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:tint="@color/colorAccent" />
 
         <View
             android:layout_width="match_parent"
@@ -118,22 +116,21 @@
                 android:layout_height="wrap_content"
                 android:text="Molyko Buea"
                 android:layout_marginTop="35dp"
-                android:textColor="@color/colorBlack"
                 android:textSize="18dp"/>
 
-            <ImageButton
-                android:id="@+id/location_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="130dp"
-                app:srcCompat="@drawable/ic_place_black_24dp"
-                android:layout_below="@+id/location"
-                android:layout_toRightOf="@id/address"
-                style="?android:attr/borderlessButtonStyle"
-                android:tint="@color/colorAccent" />
-
         </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/location_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
+            app:srcCompat="@drawable/ic_place_black_24dp"
+            android:layout_below="@+id/location"
+            android:layout_marginTop="112dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:tint="@color/colorAccent" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -155,7 +152,7 @@
                 android:id="@+id/phone1"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="Service"
+                android:text="Services"
                 android:textSize="18dp"
                 android:textColor="@color/colorAccent"/>
 
