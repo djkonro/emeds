@@ -1,19 +1,13 @@
 package com.emeds.android.emeds;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class EmedsItemDetailActivity extends BaseActivity {
 
@@ -32,4 +26,27 @@ public class EmedsItemDetailActivity extends BaseActivity {
         }
 
     }
+
+    /**
+     * This method is use to place a call from the call button on the detail activity
+     * @param v
+     */
+    public void makeCall(View v){
+
+        //find the number textview
+        TextView numberTextView = (TextView)findViewById(R.id.number);
+
+        //get the phone and number and make the call
+        String number = numberTextView.getText().toString();
+
+        Toast.makeText(this.getApplicationContext(), "Calling "+number, Toast.LENGTH_SHORT).show();
+
+        //now placing the call
+        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+        callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        callIntent.setData(Uri.parse("tel:" + number));
+        startActivity(callIntent);
+
+    }
+
 }
