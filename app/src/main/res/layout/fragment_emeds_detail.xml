@@ -132,6 +132,7 @@
             app:srcCompat="@drawable/ic_place_black_24dp"
             android:layout_below="@+id/location"
             android:layout_marginTop="112dp"
+            android:onClick="viewLocation"
             style="?android:attr/borderlessButtonStyle"
             android:tint="@color/colorAccent" />
     </android.support.v7.widget.CardView>

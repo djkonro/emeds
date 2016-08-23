@@ -49,4 +49,16 @@ public class EmedsItemDetailActivity extends BaseActivity {
 
     }
 
+    /**
+     * This method is for opening the location of the facility on a maps activity
+     * to be completed later
+     *
+     * @param v
+     */
+    public void viewLocation(View v){
+        //alerting the user
+        Toast.makeText(this, "Opening location of the facility", Toast.LENGTH_SHORT).show();
+
+
+    }
 }
