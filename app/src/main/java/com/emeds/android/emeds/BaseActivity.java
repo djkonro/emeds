@@ -100,11 +100,17 @@ public class BaseActivity extends AppCompatActivity
             public void onItemSelected(AdapterView<?> adapter, View v,
                                        int position, long id) {
                 String item = navSpinner.get(position).getTitle();
-                mpos =  position;
 
-                spinner.setSelection(mpos);
-                Toast.makeText(getApplicationContext(), "Selected  : " + item,
-                        Toast.LENGTH_LONG).show();
+                if (position > 1) {
+                    spinner.setSelection(mpos);
+                    Toast.makeText(getApplicationContext(), item + " not yet supported",
+                            Toast.LENGTH_LONG).show();
+                } else {
+                    mpos = position;
+                    spinner.setSelection(mpos);
+                    Toast.makeText(getApplicationContext(), "Selected  : " + item,
+                            Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override
