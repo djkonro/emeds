@@ -47,9 +47,6 @@ public class EmedsItemListFragment extends Fragment {
         }else if (EmedsListFragment.opt == getString(R.string.clinics)){
             tablename = EmedsDb.ClinicEntry.TABLE_NAME;
             columntitle = EmedsDb.ClinicEntry.COLUMN_NAME_TITLE;
-        }else if (EmedsListFragment.opt == getString(R.string.others)){
-            tablename = EmedsDb.OtherEntry.TABLE_NAME;
-            columntitle = EmedsDb.OtherEntry.COLUMN_NAME_TITLE;
         }
 
 

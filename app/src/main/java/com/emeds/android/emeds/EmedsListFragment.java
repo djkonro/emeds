@@ -41,7 +41,8 @@ public class EmedsListFragment extends Fragment{
         strs.add(getString(R.string.hospitals));
         strs.add(getString(R.string.pharmacies));
         strs.add(getString(R.string.clinics));
-        strs.add(getString(R.string.others));
+        strs.add(getString(R.string.diseases));
+        strs.add(getString(R.string.expert));
 
         EmedsDbHelper mDbHelper = new EmedsDbHelper(getActivity().getApplicationContext());
 
@@ -79,13 +80,18 @@ public class EmedsListFragment extends Fragment{
                 mTitleImageView.setImageResource(R.mipmap.pharmacy);
             }else if (str == getString(R.string.clinics)){
                 mTitleImageView.setImageResource(R.mipmap.clinics);
-            }else if (str == getString(R.string.others)){
+            }else if (str == getString(R.string.diseases)){
+                mTitleImageView.setImageResource(R.mipmap.hospitals);
+            }else if (str == getString(R.string.expert)){
                 mTitleImageView.setImageResource(R.mipmap.others);
             }
+
         }
 
         @Override
         public void onClick(View v) {
+            if(str == getString(R.string.expert) || str == getString(R.string.diseases))
+                return;
             opt = str;
             Intent intent = new Intent(getActivity(), EmedsItemListActivity.class);
             startActivity(intent);

@@ -10,7 +10,8 @@
     <string name="hospitals">HOSPITALS</string>
     <string name="pharmacies">PHARMACIES</string>
     <string name="clinics">CLINICS</string>
-    <string name="others">OTHERS</string>
+    <string name="diseases">COMMON DISEASES</string>
+    <string name="expert">Ask An Expert</string>
     <string name="search_title">Search</string>
     <string name="search_hint">Enter name, location or any other </string>
 </resources>
