@@ -16,6 +16,7 @@ public class EmedsDb {
     public static abstract class HospitalEntry implements BaseColumns {
         public static final String TABLE_NAME = "hospital_entry";
         public static final String ENTRY_ID = "entryid";
+        public static final String NAME = "name";
         public static final String PHONE = "phone";
         public static final String LOCATION = "location";
     }
@@ -23,12 +24,14 @@ public class EmedsDb {
     public static abstract class PharmacyEntry implements BaseColumns {
         public static final String TABLE_NAME = "pharmacy_entry";
         public static final String ENTRY_ID = "entryid";
+        public static final String NAME = "name";
         public static final String PHONE = "phone";
         public static final String LOCATION = "location";
     }
 
     public static abstract class ClinicEntry implements BaseColumns {
         public static final String TABLE_NAME = "clinic_entry";
+        public static final String NAME = "name";
         public static final String ENTRY_ID = "entryid";
         public static final String PHONE = "phone";
         public static final String LOCATION = "location";

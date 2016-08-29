@@ -25,14 +25,16 @@ public class EmedsDbHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_ENTRIES1 =
             "CREATE TABLE " + EmedsDb.HospitalEntry.TABLE_NAME + " (" +
                     EmedsDb.HospitalEntry._ID + " INTEGER "+PK+" autoincrement," +
-                    EmedsDb.HospitalEntry.ENTRY_ID + TEXT_TYPE + PK + COMMA_SEP +
+                    EmedsDb.HospitalEntry.ENTRY_ID + TEXT_TYPE + COMMA_SEP +
+                    EmedsDb.HospitalEntry.NAME + TEXT_TYPE + COMMA_SEP +
                     EmedsDb.HospitalEntry.PHONE + TEXT_TYPE + COMMA_SEP +
                     EmedsDb.HospitalEntry.LOCATION + TEXT_TYPE +
                     " )";
     private static final String SQL_CREATE_ENTRIES2 =
             "CREATE TABLE " + EmedsDb.PharmacyEntry.TABLE_NAME + " (" +
                     EmedsDb.PharmacyEntry._ID + " INTEGER PRIMARY KEY autoincrement," +
-                    EmedsDb.PharmacyEntry.ENTRY_ID + TEXT_TYPE + PK + COMMA_SEP +
+                    EmedsDb.PharmacyEntry.ENTRY_ID + TEXT_TYPE + COMMA_SEP +
+                    EmedsDb.PharmacyEntry.NAME + TEXT_TYPE + COMMA_SEP +
                     EmedsDb.PharmacyEntry.PHONE + TEXT_TYPE + COMMA_SEP +
                     EmedsDb.PharmacyEntry.LOCATION + TEXT_TYPE +
                     " )";
@@ -40,7 +42,8 @@ public class EmedsDbHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_ENTRIES3 =
             "CREATE TABLE " + EmedsDb.ClinicEntry.TABLE_NAME + " (" +
                     EmedsDb.ClinicEntry._ID + " INTEGER PRIMARY KEY autoincrement," +
-                    EmedsDb.ClinicEntry.ENTRY_ID + TEXT_TYPE + PK + COMMA_SEP +
+                    EmedsDb.ClinicEntry.ENTRY_ID + TEXT_TYPE + COMMA_SEP +
+                    EmedsDb.ClinicEntry.NAME + TEXT_TYPE + COMMA_SEP +
                     EmedsDb.ClinicEntry.PHONE + TEXT_TYPE + COMMA_SEP +
                     EmedsDb.ClinicEntry.LOCATION + TEXT_TYPE +
                     " )";

@@ -40,13 +40,13 @@ public class EmedsItemListFragment extends Fragment {
 
         if(EmedsListFragment.opt == getString(R.string.hospitals)){
             tablename = EmedsDb.HospitalEntry.TABLE_NAME;
-            columntitle = EmedsDb.HospitalEntry.COLUMN_NAME_TITLE;
+            columntitle = EmedsDb.HospitalEntry.NAME;
         }else if (EmedsListFragment.opt == getString(R.string.pharmacies)){
             tablename = EmedsDb.PharmacyEntry.TABLE_NAME;
-            columntitle = EmedsDb.PharmacyEntry.COLUMN_NAME_TITLE;
+            columntitle = EmedsDb.PharmacyEntry.NAME;
         }else if (EmedsListFragment.opt == getString(R.string.clinics)){
             tablename = EmedsDb.ClinicEntry.TABLE_NAME;
-            columntitle = EmedsDb.ClinicEntry.COLUMN_NAME_TITLE;
+            columntitle = EmedsDb.ClinicEntry.NAME;
         }
 
 

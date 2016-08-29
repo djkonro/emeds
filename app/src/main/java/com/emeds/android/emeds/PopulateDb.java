@@ -13,58 +13,79 @@ public class PopulateDb {
     public static void populate(SQLiteDatabase db){
         // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(EmedsDb.HospitalEntry.COLUMN_NAME_ENTRY_ID, "H1");
-        values.put(EmedsDb.HospitalEntry.COLUMN_NAME_TITLE, "Hospital 1");
+        values.put(EmedsDb.HospitalEntry.ENTRY_ID, "BueaH1");
+        values.put(EmedsDb.HospitalEntry.NAME, "Government District Hospital");
+        values.put(EmedsDb.HospitalEntry.PHONE, "6--------");
+        values.put(EmedsDb.HospitalEntry.LOCATION, "Likoko Street, Bokwango ");
         db.insert(EmedsDb.HospitalEntry.TABLE_NAME, null, values);
-        values.put(EmedsDb.HospitalEntry.COLUMN_NAME_ENTRY_ID, "H2");
-        values.put(EmedsDb.HospitalEntry.COLUMN_NAME_TITLE, "Hospital 2");
+
+        values.put(EmedsDb.HospitalEntry.ENTRY_ID, "BueaH2");
+        values.put(EmedsDb.HospitalEntry.NAME, "7th Day Adventist Hospital");
+        values.put(EmedsDb.HospitalEntry.PHONE, "233322270");
+        values.put(EmedsDb.HospitalEntry.LOCATION, "Buea main Road, Soppo");
         db.insert(EmedsDb.HospitalEntry.TABLE_NAME, null, values);
-        values.put(EmedsDb.HospitalEntry.COLUMN_NAME_ENTRY_ID, "H3");
-        values.put(EmedsDb.HospitalEntry.COLUMN_NAME_TITLE, "Hospital 3");
+
+        values.put(EmedsDb.HospitalEntry.ENTRY_ID, "BueaH3");
+        values.put(EmedsDb.HospitalEntry.NAME, "Mount Mary Hospital");
+        values.put(EmedsDb.HospitalEntry.PHONE, "233322469");
+        values.put(EmedsDb.HospitalEntry.LOCATION, "Soppo, Buea ");
         db.insert(EmedsDb.HospitalEntry.TABLE_NAME, null, values);
-        values.put(EmedsDb.HospitalEntry.COLUMN_NAME_ENTRY_ID, "H4");
-        values.put(EmedsDb.HospitalEntry.COLUMN_NAME_TITLE, "Hospital 4");
+
+        values.put(EmedsDb.HospitalEntry.ENTRY_ID, "BueaH4");
+        values.put(EmedsDb.HospitalEntry.NAME, "Regional Hospital Annex ");
+        values.put(EmedsDb.HospitalEntry.PHONE, "233323390");
+        values.put(EmedsDb.HospitalEntry.LOCATION, "Longstreet, Buea");
         db.insert(EmedsDb.HospitalEntry.TABLE_NAME, null, values);
 
 
-        values.put(EmedsDb.PharmacyEntry.COLUMN_NAME_ENTRY_ID, "P1");
-        values.put(EmedsDb.PharmacyEntry.COLUMN_NAME_TITLE, "Pharmacy 1");
-        db.insert(EmedsDb.PharmacyEntry.TABLE_NAME, null, values);
-        values.put(EmedsDb.PharmacyEntry.COLUMN_NAME_ENTRY_ID, "P2");
-        values.put(EmedsDb.PharmacyEntry.COLUMN_NAME_TITLE, "Pharmacy 2");
-        db.insert(EmedsDb.PharmacyEntry.TABLE_NAME, null, values);
-        values.put(EmedsDb.PharmacyEntry.COLUMN_NAME_ENTRY_ID, "P3");
-        values.put(EmedsDb.PharmacyEntry.COLUMN_NAME_TITLE, "Pharmacy 3");
-        db.insert(EmedsDb.PharmacyEntry.TABLE_NAME, null, values);
-        values.put(EmedsDb.PharmacyEntry.COLUMN_NAME_ENTRY_ID, "P4");
-        values.put(EmedsDb.PharmacyEntry.COLUMN_NAME_TITLE, "Pharmacy 4");
+        values.put(EmedsDb.PharmacyEntry.ENTRY_ID, "BueaP1");
+        values.put(EmedsDb.PharmacyEntry.NAME, "Amazing Pharmacy");
+        values.put(EmedsDb.PharmacyEntry.PHONE, "699316829");
+        values.put(EmedsDb.PharmacyEntry.LOCATION, "Malingo, Buea");
         db.insert(EmedsDb.PharmacyEntry.TABLE_NAME, null, values);
 
-        values.put(EmedsDb.ClinicEntry.COLUMN_NAME_ENTRY_ID, "C1");
-        values.put(EmedsDb.ClinicEntry.COLUMN_NAME_TITLE, "Clinic 1");
-        db.insert(EmedsDb.ClinicEntry.TABLE_NAME, null, values);
-        values.put(EmedsDb.ClinicEntry.COLUMN_NAME_ENTRY_ID, "C2");
-        values.put(EmedsDb.ClinicEntry.COLUMN_NAME_TITLE, "Clinic 2");
-        db.insert(EmedsDb.ClinicEntry.TABLE_NAME, null, values);
-        values.put(EmedsDb.ClinicEntry.COLUMN_NAME_ENTRY_ID, "C3");
-        values.put(EmedsDb.ClinicEntry.COLUMN_NAME_TITLE, "Clinic 3");
-        db.insert(EmedsDb.ClinicEntry.TABLE_NAME, null, values);
-        values.put(EmedsDb.ClinicEntry.COLUMN_NAME_ENTRY_ID, "C4");
-        values.put(EmedsDb.ClinicEntry.COLUMN_NAME_TITLE, "Clinic 4");
+        values.put(EmedsDb.PharmacyEntry.ENTRY_ID, "BueaP2");
+        values.put(EmedsDb.PharmacyEntry.NAME, "Winner's Pharmacy");
+        values.put(EmedsDb.PharmacyEntry.PHONE, "677692831");
+        values.put(EmedsDb.PharmacyEntry.LOCATION, "Buea main road, soppo ");
+        db.insert(EmedsDb.PharmacyEntry.TABLE_NAME, null, values);
+
+        values.put(EmedsDb.PharmacyEntry.ENTRY_ID, "BueaP3");
+        values.put(EmedsDb.PharmacyEntry.NAME, "Salvation Pharmacy");
+        values.put(EmedsDb.PharmacyEntry.PHONE, "694410601");
+        values.put(EmedsDb.PharmacyEntry.LOCATION, "Buea main road, soppo");
+        db.insert(EmedsDb.PharmacyEntry.TABLE_NAME, null, values);
+
+        values.put(EmedsDb.PharmacyEntry.ENTRY_ID, "BueaP4");
+        values.put(EmedsDb.PharmacyEntry.NAME, "Enamen Pharmacy");
+        values.put(EmedsDb.PharmacyEntry.PHONE, "677003705");
+        values.put(EmedsDb.PharmacyEntry.LOCATION, "Check point, Buea");
+        db.insert(EmedsDb.PharmacyEntry.TABLE_NAME, null, values);
+
+
+        values.put(EmedsDb.ClinicEntry.ENTRY_ID, "BueaC1");
+        values.put(EmedsDb.ClinicEntry.NAME, "Solidarity Health Foundation ");
+        values.put(EmedsDb.ClinicEntry.PHONE, "677615757");
+        values.put(EmedsDb.ClinicEntry.LOCATION, "Checkpoint, Buea");
         db.insert(EmedsDb.ClinicEntry.TABLE_NAME, null, values);
 
-        values.put(EmedsDb.OtherEntry.COLUMN_NAME_ENTRY_ID, "O1");
-        values.put(EmedsDb.OtherEntry.COLUMN_NAME_TITLE, "Other 1");
-        db.insert(EmedsDb.OtherEntry.TABLE_NAME, null, values);
-        values.put(EmedsDb.OtherEntry.COLUMN_NAME_ENTRY_ID, "O2");
-        values.put(EmedsDb.OtherEntry.COLUMN_NAME_TITLE, "Other 2");
-        db.insert(EmedsDb.OtherEntry.TABLE_NAME, null, values);
-        values.put(EmedsDb.OtherEntry.COLUMN_NAME_ENTRY_ID, "O3");
-        values.put(EmedsDb.OtherEntry.COLUMN_NAME_TITLE, "Other 3");
-        db.insert(EmedsDb.OtherEntry.TABLE_NAME, null, values);
-        values.put(EmedsDb.OtherEntry.COLUMN_NAME_ENTRY_ID, "O4");
-        values.put(EmedsDb.OtherEntry.COLUMN_NAME_TITLE, "Other 4");
-        db.insert(EmedsDb.OtherEntry.TABLE_NAME, null, values);
+        values.put(EmedsDb.ClinicEntry.ENTRY_ID, "BueaC2");
+        values.put(EmedsDb.ClinicEntry.NAME, "ST Veronica's Medical Center");
+        values.put(EmedsDb.ClinicEntry.PHONE, "233322419");
+        values.put(EmedsDb.ClinicEntry.LOCATION, "Bunduma, Buea");
+        db.insert(EmedsDb.ClinicEntry.TABLE_NAME, null, values);
+
+        values.put(EmedsDb.ClinicEntry.ENTRY_ID, "BueaC3");
+        values.put(EmedsDb.ClinicEntry.NAME, "St Albert");
+        values.put(EmedsDb.ClinicEntry.PHONE, "677664668");
+        values.put(EmedsDb.ClinicEntry.LOCATION, "UB Junction");
+        db.insert(EmedsDb.ClinicEntry.TABLE_NAME, null, values);
+
+        values.put(EmedsDb.ClinicEntry.ENTRY_ID, "BueaC4");
+        values.put(EmedsDb.ClinicEntry.NAME, "Health For All Foundation");
+        values.put(EmedsDb.ClinicEntry.PHONE, "6--------");
+        values.put(EmedsDb.ClinicEntry.LOCATION, "UB Junction");
+        db.insert(EmedsDb.ClinicEntry.TABLE_NAME, null, values);
 
     }
 }
