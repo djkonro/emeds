@@ -33,7 +33,7 @@
                 />
 
             <TextView
-                android:id="@+id/detial_text_view1"
+                android:id="@+id/itemname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/card_image"

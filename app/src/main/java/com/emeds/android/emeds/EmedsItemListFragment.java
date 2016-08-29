@@ -15,8 +15,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.emeds.android.emeds.EmedsListFragment.opt;
-
 /**
  * Created by konro on 7/31/16.
  */
@@ -25,7 +23,7 @@ public class EmedsItemListFragment extends Fragment {
 
     private RecyclerView mEmedsRecyclerView;
     private RvAdapter mAdapter;
-    public static String tablename = null, columntitle = null;
+    public static String tablename = null, itemname = null;
     public static int spos;
     public static Cursor scur;
 
@@ -40,14 +38,12 @@ public class EmedsItemListFragment extends Fragment {
 
         if(EmedsListFragment.opt == getString(R.string.hospitals)){
             tablename = EmedsDb.HospitalEntry.TABLE_NAME;
-            columntitle = EmedsDb.HospitalEntry.NAME;
         }else if (EmedsListFragment.opt == getString(R.string.pharmacies)){
             tablename = EmedsDb.PharmacyEntry.TABLE_NAME;
-            columntitle = EmedsDb.PharmacyEntry.NAME;
         }else if (EmedsListFragment.opt == getString(R.string.clinics)){
             tablename = EmedsDb.ClinicEntry.TABLE_NAME;
-            columntitle = EmedsDb.ClinicEntry.NAME;
         }
+        itemname = EmedsDb.NAME;
 
 
         //mTitleImageView.setImageResource(R.mipmap.hospitals);
@@ -89,9 +85,16 @@ public class EmedsItemListFragment extends Fragment {
             this.cur = cur;
             cursor.moveToPosition(cur);
             str = cursor.getString(
-                    cursor.getColumnIndex(columntitle));
+                    cursor.getColumnIndex(itemname));
+            String id = cursor.getString(
+                    cursor.getColumnIndex(EmedsDb.ENTRY_ID));
+            id = id.toLowerCase();
             //cursor.close();
-            mTitleImageView.setImageResource(R.drawable.test);
+
+            int resID = getResources().getIdentifier(id , "drawable", getActivity().getPackageName());
+            if(resID <= 0)
+                resID = getResources().getIdentifier("test" , "drawable", getActivity().getPackageName());
+            mTitleImageView.setImageResource(resID);
             mTitleTextView.setText(str);
         }
 

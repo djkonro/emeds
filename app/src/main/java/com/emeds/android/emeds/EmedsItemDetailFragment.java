@@ -1,6 +1,5 @@
 package com.emeds.android.emeds;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -23,6 +22,8 @@ import java.util.List;
 public class EmedsItemDetailFragment extends Fragment{
 
     private TextView mTextView1;
+    private TextView mTextView2;
+    private TextView mTextView3;
     private ImageView mTitleImageView;
     private RecyclerView mEmedsRecyclerView;
     private List<String> strs;
@@ -35,16 +36,31 @@ public class EmedsItemDetailFragment extends Fragment{
         mEmedsRecyclerView = (RecyclerView) view.findViewById(R.id.service_recycler_view);
         mEmedsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        mTextView1 = (TextView) view.findViewById(R.id.detial_text_view1);
+        mTextView1 = (TextView) view.findViewById(R.id.itemname);
+        mTextView2 = (TextView) view.findViewById(R.id.number);
+        mTextView3 = (TextView) view.findViewById(R.id.address);
         mTitleImageView = (ImageView) view.findViewById(R.id.card_image);
 
         Cursor cur = EmedsItemListFragment.scur;
         cur.moveToPosition(EmedsItemListFragment.spos);
 
-        String str1 = cur.getString(
-                cur.getColumnIndex(EmedsItemListFragment.columntitle));
-        mTextView1.setText(str1);
-        mTitleImageView.setImageResource(R.drawable.test);
+        String id = cur.getString(
+                cur.getColumnIndex(EmedsDb.ENTRY_ID));
+        id = id.toLowerCase();
+        String name = cur.getString(
+                cur.getColumnIndex(EmedsDb.NAME));
+        String phone = cur.getString(
+                cur.getColumnIndex(EmedsDb.PHONE));
+        String location = cur.getString(
+                cur.getColumnIndex(EmedsDb.LOCATION));
+
+        mTextView1.setText(name);
+        mTextView2.setText("+237"+phone);
+        mTextView3.setText(location);
+        int resID = getResources().getIdentifier(id , "drawable", getActivity().getPackageName());
+        if(resID <= 0)
+            resID = getResources().getIdentifier("test" , "drawable", getActivity().getPackageName());
+        mTitleImageView.setImageResource(resID);
 
         strs = new ArrayList<String>();
 
