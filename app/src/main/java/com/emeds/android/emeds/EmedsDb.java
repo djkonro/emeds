@@ -14,27 +14,24 @@ public class EmedsDb {
 
     /* Inner class that defines the table contents */
     public static abstract class HospitalEntry implements BaseColumns {
-        public static final String TABLE_NAME = "entry";
-        public static final String COLUMN_NAME_ENTRY_ID = "entryid";
-        public static final String COLUMN_NAME_TITLE = "title";
+        public static final String TABLE_NAME = "hospital_entry";
+        public static final String ENTRY_ID = "entryid";
+        public static final String PHONE = "phone";
+        public static final String LOCATION = "location";
     }
 
     public static abstract class PharmacyEntry implements BaseColumns {
         public static final String TABLE_NAME = "pharmacy_entry";
-        public static final String COLUMN_NAME_ENTRY_ID = "entryid";
-        public static final String COLUMN_NAME_TITLE = "title";
+        public static final String ENTRY_ID = "entryid";
+        public static final String PHONE = "phone";
+        public static final String LOCATION = "location";
     }
 
     public static abstract class ClinicEntry implements BaseColumns {
         public static final String TABLE_NAME = "clinic_entry";
-        public static final String COLUMN_NAME_ENTRY_ID = "entryid";
-        public static final String COLUMN_NAME_TITLE = "title";
-    }
-
-    public static abstract class OtherEntry implements BaseColumns {
-        public static final String TABLE_NAME = "other_entry";
-        public static final String COLUMN_NAME_ENTRY_ID = "entryid";
-        public static final String COLUMN_NAME_TITLE = "title";
+        public static final String ENTRY_ID = "entryid";
+        public static final String PHONE = "phone";
+        public static final String LOCATION = "location";
     }
 
     public static Cursor getCursor(String tablename){
