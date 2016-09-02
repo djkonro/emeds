@@ -45,20 +45,20 @@ public class PopulateDb {
         db.insert(EmedsDb.PharmacyEntry.TABLE_NAME, null, values);
 
         values.put(EmedsDb.ENTRY_ID, "BueaP3");
+        values.put(EmedsDb.NAME, "Royal Pharmacy");
+        values.put(EmedsDb.PHONE, "6 - - - - - - - -");
+        values.put(EmedsDb.LOCATION, "Buea main road, Soppo ");
+        db.insert(EmedsDb.PharmacyEntry.TABLE_NAME, null, values);
+
+        values.put(EmedsDb.ENTRY_ID, "BueaP4");
         values.put(EmedsDb.NAME, "Salvation Pharmacy");
         values.put(EmedsDb.PHONE, "694410601");
         values.put(EmedsDb.LOCATION, "Buea main road, soppo");
         db.insert(EmedsDb.PharmacyEntry.TABLE_NAME, null, values);
 
-        values.put(EmedsDb.ENTRY_ID, "BueaP4");
-        values.put(EmedsDb.NAME, "Enamen Pharmacy");
-        values.put(EmedsDb.PHONE, "677003705");
-        values.put(EmedsDb.LOCATION, "Check point, Buea");
-        db.insert(EmedsDb.PharmacyEntry.TABLE_NAME, null, values);
-
 
         values.put(EmedsDb.ENTRY_ID, "BueaC1");
-        values.put(EmedsDb.NAME, "Solidarity Health Foundation ");
+        values.put(EmedsDb.NAME, "Solidarity Health Foundation");
         values.put(EmedsDb.PHONE, "677615757");
         values.put(EmedsDb.LOCATION, "Checkpoint, Buea");
         db.insert(EmedsDb.ClinicEntry.TABLE_NAME, null, values);
@@ -69,15 +69,15 @@ public class PopulateDb {
         values.put(EmedsDb.LOCATION, "Bunduma, Buea");
         db.insert(EmedsDb.ClinicEntry.TABLE_NAME, null, values);
 
-        values.put(EmedsDb.ENTRY_ID, "BueaC3");
-        values.put(EmedsDb.NAME, "St Albert");
-        values.put(EmedsDb.PHONE, "677664668");
+        values.put(EmedsDb.ENTRY_ID, "BueaC4");
+        values.put(EmedsDb.NAME, "Health For All Foundation");
+        values.put(EmedsDb.PHONE, "6 - - - - - - - -");
         values.put(EmedsDb.LOCATION, "UB Junction");
         db.insert(EmedsDb.ClinicEntry.TABLE_NAME, null, values);
 
-        values.put(EmedsDb.ENTRY_ID, "BueaC4");
-        values.put(EmedsDb.NAME, "Health For All Foundation");
-        values.put(EmedsDb.PHONE, "6--------");
+        values.put(EmedsDb.ENTRY_ID, "BueaC3");
+        values.put(EmedsDb.NAME, "St Albert");
+        values.put(EmedsDb.PHONE, "677664668");
         values.put(EmedsDb.LOCATION, "UB Junction");
         db.insert(EmedsDb.ClinicEntry.TABLE_NAME, null, values);
 
