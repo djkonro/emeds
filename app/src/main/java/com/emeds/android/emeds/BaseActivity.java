@@ -71,7 +71,8 @@ public class BaseActivity extends AppCompatActivity
         actionBar = getSupportActionBar();
 
         // Hide the action bar title
-        actionBar.setDisplayShowTitleEnabled(false);
+        //actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setTitle("EMS");
 
         // Spinner title navigation data
         navSpinner = new ArrayList<SpinnerNavItem>();
