@@ -26,8 +26,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class BaseActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class BaseActivity extends AppCompatActivity{
     // action bar
     private ActionBar actionBar;
 
@@ -55,7 +54,7 @@ public class BaseActivity extends AppCompatActivity
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });*/
+        });
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -65,13 +64,10 @@ public class BaseActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setNavigationItemSelectedListener(this);*/
 
         //initialising the actionbar variable
         actionBar = getSupportActionBar();
-
-        // Hide the action bar title
-        //actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setTitle("EMS");
 
         // Spinner title navigation data
@@ -178,7 +174,7 @@ public class BaseActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
-
+    /*
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -202,7 +198,7 @@ public class BaseActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
+    }*/
 
     class TitleNavigationAdapter extends BaseAdapter {
 
